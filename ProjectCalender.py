@@ -7,3 +7,6 @@ def is_leap(year):
 def display_year_calendar(year):
     """Print the full calendar for the given year."""
     print("=" * 400)
+    print(f"📅 Calendar for the year: {year}")
+    print("=" * 400)
+    print(calendar.TextCalendar(calendar.SUNDAY).formatyear(year, 2, 1, 1, 3))
