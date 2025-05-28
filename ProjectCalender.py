@@ -12,7 +12,7 @@ def display_year_calendar(year):
     print(calendar.TextCalendar(calendar.SUNDAY).formatyear(year, 2, 1, 1, 3))
 
 def main():
-    print("🗓️  Welcome to the 400-Year Calendar Viewer 🗓️")
+    print("🗓  Welcome to the 400-Year Calendar Viewer 🗓")
     
     while True:
         try:
@@ -22,3 +22,20 @@ def main():
             break
         except ValueError:
             print("❌ Please enter a valid positive year (1 or higher).")
+
+    end_year = start_year + 399
+    print(f"\n✅ You can now view any year from {start_year} to {end_year}.")
+
+    while True:
+        try:
+            selected_year = int(input("Enter the year you want to view: "))
+            if selected_year < start_year or selected_year > end_year:
+                raise ValueError
+            break
+        except ValueError:
+            print(f"❌ Year must be between {start_year} and {end_year}.")
+
+    display_year_calendar(selected_year)
+
+if _name_ == "_main_":
+    main()
